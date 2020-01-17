@@ -14,10 +14,7 @@ public class GetOne {
 			}
 			iterationCount++;
 		}
-		System.out.println(iterationCount);
 		
-		
-
 		// TODO #1: Implement method which processes the passed positive number
 		// value until it's
 		// reduced to 1.
@@ -30,12 +27,29 @@ public class GetOne {
 
 		return iterationCount;
 	}
-	
-	public static void main (String[] args ) {
-		new GetOne().iterations(6);
-	}
+
+
+//	public static void main(String[] args) {
+//		new GetOne().iterations(6);
+//	}
 
 	public int theMostComplexNo(int maxNumber) {
+		int iterationCount = 0;
+		int highestNumber = 0;
+		int numberToReturn = 1;
+		
+		for (int i = maxNumber; i > 1; i--) {
+			iterationCount = this.iterations(i);
+	
+		
+		if (highestNumber < iterationCount ) {
+			highestNumber = iterationCount;
+			
+			numberToReturn = i;
+			
+		} 
+		}
+
 		// TODO #2: Calculate how many iterations each number from 1 to
 		// maxNumber (including) to get value till 1.
 		// Return the number, which takes most iterations to do that.
@@ -43,7 +57,8 @@ public class GetOne {
 		// And return 3, because it has the biggest count of iterations.
 		// (If count of iterations is the same for several numbers, return
 		// smallest number).
-		return 0;
-	}
 
-}
+return numberToReturn;
+	}
+	}
+	
