@@ -27,7 +27,21 @@ public class DiceHistogram {
         1|####### 7
      */
     public static String histogram(final int results[]) {
-        return null;
+    	
+    	String [] line;
+    	String [] mid;
+    	for (int i=results.length; i == 0; i--) {
+    		int j = i;
+    		for (j=0; j<i; j++) {
+    		mid[j] = "#";
+    		}
+    		line[i] = mid[j] + i-- + \n;   		
+    		
+    	}
+    	   	
+    	
+    	
+        return line;
     }
 
 }
