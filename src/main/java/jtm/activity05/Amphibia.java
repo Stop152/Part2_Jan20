@@ -1,7 +1,6 @@
 package jtm.activity05;
 
 import jtm.activity04.Road;
-import jtm.activity04.Transport;
 
 public class Amphibia extends Vehicle {
 
