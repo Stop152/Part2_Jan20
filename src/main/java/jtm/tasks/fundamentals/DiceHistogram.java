@@ -1,6 +1,9 @@
 package jtm.tasks.fundamentals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import jtm.activity03.Array;
 
 public class DiceHistogram {
 
@@ -21,19 +24,36 @@ public class DiceHistogram {
 	 * 
 	 * 6|##### 5 5| 4|# 1 3|########## 10 2|### 3 1|####### 7
 	 */
-	public static String histogram(final int results[]) {
-    	
-    	System.out.println(Arrays.toString(results));
-    	String line[];
-    	
-    	
-    	for (int i = 100; i<0; i--) {
-    		if (results[i]!=0) {
-    		line [i] = Arrays.toString(results);
-    		 System.out.println(line);
-    		 return "#" + line[i];
-    	}
-    	}
-    	}
-}
 
+	public static String histogram(final int results[]) {
+		
+		StringBuilder line = new StringBuilder();
+
+		for (int i = 5; i >= 0; i--) {
+
+			int s = ++i;
+			line.append(String.valueOf(s));
+			line.append("|");
+			i--;
+
+			for (int j = 0; j < results[i]; j++) {
+				
+				line.append("#");
+			}
+							
+			if (results[i] != 0) {
+				int p = results[i];
+				line.append(" ");
+				line.append(String.valueOf(p));
+				line.append("\n");
+				
+			} else {				
+				line.append("\n");				
+			}
+		}
+		
+		return line.toString();
+		
+	}
+}
+ 
