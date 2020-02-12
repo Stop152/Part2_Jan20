@@ -1,8 +1,14 @@
 package jtm.activity09;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Set;
+
+
 
 /*- TODO #2
  * Implement Iterator interface with Orders class
@@ -32,20 +38,21 @@ import java.util.ListIterator;
  *  - ItemN: Customer1,Customer2: 4
  */
 
-public class Orders {
-	
+public class Orders implements Iterator<Order> {
+
 	private List<Order> orders;
 	private ListIterator<Order> iterator;
-	
+
 	public Orders() {
 		this.orders = new LinkedList<>();
 		this.iterator = orders.listIterator();
 	}
-	
+
 	public void add(Order item) {
 		this.iterator.add(item);
 		this.iterator.previous();
 	}
+
 	/*-
 	 * TODO #1
 	 * Create data structure to hold:
@@ -57,6 +64,42 @@ public class Orders {
 	 *      (which is usual approach when working with iterateable collections).
 	 */
 	public List<Order> getItemsList() {
-		
+
+		List<Order> getItemsList = new LinkedList<>(orders);
+		return getItemsList;
+
+	}
+
+	public Set<Order> getItemsSet() {
+		Set<Order> getItemsSet = new HashSet<>(orders);
+		return getItemsSet;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public void sort() {
+		Collections.sort(orders);
+	}
+
+	public boolean hasNext() {
+		return iterator.hasNext();
+	}
+
+	public Order next() {
+		return iterator.next();
+	}
+
+	public void remove() {
+		iterator.remove();
+	}
+
+	public String toString() {
+		return orders.toString();
 	}
 }
