@@ -31,7 +31,7 @@ public class SupermarketQueue {
 		int time = 0;
 		int min = 0;
 		int i = 0;
-
+		
 		System.out.println(Arrays.toString(customers) + "beginning");
 		System.out.println(n);
 
@@ -44,28 +44,47 @@ public class SupermarketQueue {
 			System.out.println(time);
 		} else {
 
-			while (i < customers.length) {
-
-				if (min < cashTime[i]) {
-					min = cashTime[i];
-				}
-				System.out.println(Arrays.toString(cashTime) + "while");
-
-				cashTime[i] = min + customers[i];
-				System.out.println(Arrays.toString(cashTime) + "bb");
-				i++;
+			for (int k = 0; k < n; k++) {
+				cashTime[k] = customers[k];					
 			}
 			
-		}
-
-		for (int j = 0; j <= n; j++) {
-			if (cashTime[j] > time) {
-				time = cashTime[j];
+			i = n;
+			
+			while (i < customers.length) {
+				
+				System.out.println(Arrays.toString(cashTime) + "1st line");
+				
+				min = cashTime[0];
+				int index = 0;
+				
+				for (int r = 1; r < n; r++) {
+					
+					if (min > cashTime[r]) {
+						min = cashTime[r];
+						index = r;
+					}	
+					 
+					
+				}
+				System.out.println(min + "min element");				
+			
+				cashTime[index] = cashTime[index] + customers[i];
+				
+				i++;
+				
+				System.out.println(Arrays.toString(cashTime) + "next line");
+				
 			}
-			System.out.println(Arrays.toString(cashTime));
-			System.out.println(time);
-			return time;
 
+			for (int j = 0; j <= n; j++) {
+				if (cashTime[j] > time) {
+					time = cashTime[j];
+				}
+				System.out.println(Arrays.toString(cashTime));
+				System.out.println(time);
+				return time;
+
+			}
 		}
 
 		return time;
