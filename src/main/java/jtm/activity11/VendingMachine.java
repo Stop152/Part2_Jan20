@@ -24,10 +24,10 @@ public class VendingMachine {
 	public void addProducts(String product, Double price) {
 		if(products == null) {
 			this.products = new HashMap<>();
-		} else {
-			this.products.put(product,price);
+		}		
+		this.products.put(product.toLowerCase(),price);
 		}
-	}
+		
 	
 	/*
 	 * TODO
@@ -42,7 +42,7 @@ public class VendingMachine {
 	 * Return balance formatted in a form 0.00$ e.g. 8.50$
 	 */
 	public String balance() {
-		return String.format(".%2f",this.coinsInMachine);
+		return String.format("%.2f$",this.coinsInMachine);
 	}
 	
 	/*
@@ -54,11 +54,20 @@ public class VendingMachine {
 	 * If user does not have enough coins return "Balance not enough" 
 	 */
 	public String chooseProduct(String product) {
-		if(this.coinsInMachine > this.products.get(product)) {
-			return product;
+		if(!this.products.containsKey(product.toLowerCase())) {
+			return null;
 		}
-		return null;
+		//Double zero = this.products.get(product.toLowerCase());
+		//if (zero != null) {
+		if(this.coinsInMachine > this.products.get(product.toLowerCase())) {
+			return product.toLowerCase();
+		}else {
+			return "Balance not enougth";	
+		}
 	}
+		
+		
+
 	
 	/*
 	 * TODO return user all remaining balance and set current machine 

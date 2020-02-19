@@ -60,14 +60,17 @@ public class SimpleCalc {
 		}
 		}
 
-	public static Integer divide(int a, int b) throws SimpleCalcException {
+	public static Integer divide(int a, int b) {
 		try {
 			validateInput(a, b);
+			
+			if (b !=0) {
 
 			int result = a / b;
 
 			validateOutput(result);
-			return result;
+			return result;}
+			else return null;
 			
 		} catch (SimpleCalcException e) {
 			e.printStackTrace();

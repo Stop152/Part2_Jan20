@@ -20,8 +20,19 @@ public class EqualSidesArray {
 
         If you are given an array with multiple answers, return the lowest correct index.
      */
+	
+	
 
     public static int findEvenIndex(int[] arr) {
+    	
+    	int sumRught = 0;
+    	int sumLeft = 0;
+    	
+    	int i = 0;
+    	for (int j=i+2; j<arr.length; j++) {
+    		sumRight = sumRigth + arr[j];
+    	}
+    	
         return -1;
     }
 
