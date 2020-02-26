@@ -27,8 +27,36 @@ public class JosephusSurvivor {
      */
 
     public static int josephusSurvivor(final int n, final int k) {
-
-        return -1;
+    	
+    	int[] list = new int[n];
+    	int g =n;
+    	   	
+    	System.out.println(Arrays.toString(list));    		
+    	
+    	for (int l=0; l<g; l++) {
+    		list[l]=1;
+    	
+    	for (int p=1; p<g; p++) {
+    		list [p] = p++;
+    		p=p--;
+    	}
+    	g=g--;
+    	}
+    	 
+    	int i = 0;
+    	int u = n;
+    	while (i<n) {
+    		i=i+k-1;
+    		list[i] = 0;    		
+    	}  	  
+    		
+    	
+    	int result =0;  
+    	
+    	for(int r=0; r<n; r++) {
+    		result = result + list[i];
+    	}
+        return result;
     }
 
     public static void main(String args[]) {
